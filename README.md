@@ -26,8 +26,9 @@ Disk load for sda is at 2.29%.|rd_iops=18.52 wr_iops=192.21 tot_iops=210.73 rd_n
 
 # License
 ````
-Copyright (C) 2011-2012, it-novum GmbH <community@open-attic.org>
-
+Copyright (C) 2011-2012, it-novum GmbH
+Copyright (c) 2017 SUSE LLC
+ 
 openATTIC is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by
 the Free Software Foundation; version 2.
