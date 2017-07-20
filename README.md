@@ -7,6 +7,7 @@ to monitor disk io, request size, disk load, etc...
 mkdir -p /var/tmp/nagios/
 chown nagios:nagios /var/tmp/nagios
 
+chmod +x check_diskstats
 ./check_diskstats /dev/sda
 ````
 
