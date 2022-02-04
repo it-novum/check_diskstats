@@ -20,7 +20,13 @@ import os
 import sys
 from time import time, mktime
 from datetime import datetime
-from ConfigParser import ConfigParser
+
+try:
+    # Python 3 variant
+    from configparser import ConfigParser
+except ImportError:
+    # Python 2 variant
+    from ConfigParser import ConfigParser
 
 try:
     # Uncomment the following line to disable the device UUID check.
@@ -216,18 +222,18 @@ if havestate:
         normindex = int(tot_normiops / util_percent)
         out += "ioindex=%d normindex=%d " % (ioindex, normindex)
 
-    print out
+    print(out)
 
 else:
-    print "Need state info, please wait until Nagios checks again."
+    print("Need state info, please wait until Nagios checks again.")
     exit = 3
     if not state.has_section("state"):
         state.add_section("state")
 
 # Copy all values from currstate to the statfile and save it.
 for key in currstate:
-    state.set("state", key, currstate[key])
+    state.set("state", key, str(currstate[key]))
 
-state.write( open( "/var/tmp/nagios/diskstats.%s" % disk, "wb" ) )
+state.write( open( "/var/tmp/nagios/diskstats.%s" % disk, "w" ) )
 
 sys.exit(exit)
