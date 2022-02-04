@@ -234,8 +234,6 @@ else:
 for key in currstate:
     state.set("state", key, str(currstate[key]))
 
-
-state.write( open( "/dev/shm/diskstats.%s" % disk, "wb" ) )
-
+state.write( open( "/dev/shm/diskstats.%s" % disk, "w" ) )
 
 sys.exit(exit)
