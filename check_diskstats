@@ -43,7 +43,7 @@ disk = os.path.realpath(sys.argv[-1]).replace("/dev/", "")
 
 # Read the state file (if possible).
 state = ConfigParser()
-havestate = bool( state.read("/var/tmp/nagios/diskstats.%s" % disk) ) and state.has_section("state")
+havestate = bool( state.read("/dev/shm/diskstats.%s" % disk) ) and state.has_section("state")
 
 
 exit = 0
@@ -234,6 +234,6 @@ else:
 for key in currstate:
     state.set("state", key, str(currstate[key]))
 
-state.write( open( "/var/tmp/nagios/diskstats.%s" % disk, "w" ) )
+state.write( open( "/dev/shm/diskstats.%s" % disk, "w" ) )
 
 sys.exit(exit)
