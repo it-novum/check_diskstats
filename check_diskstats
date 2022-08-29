@@ -93,7 +93,7 @@ if not havestate:
         state.add_section("device")
 
     if createstamp is not None:
-        state.set("device", "initialized", createstamp)
+        state.set("device", "initialized", str(createstamp))
 
     if HAVE_UDEV and "DM_UUID" in dev.keys():
         state.set("device", "uuid", dev.get("DM_UUID"))
